@@ -1,0 +1,30 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1587635552404",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:DeleteLogGroup",
+        "logs:DeleteLogStream",
+        "logs:DescribeLogGroups",
+        "logs:DescribeLogStreams",
+        "logs:DescribeMetricFilters",
+        "logs:PutDestination",
+        "logs:PutDestinationPolicy",
+        "logs:PutLogEvents",
+        "logs:PutMetricFilter",
+        "logs:PutResourcePolicy",
+        "logs:PutRetentionPolicy",
+        "logs:PutSubscriptionFilter",
+        "logs:TagLogGroup",
+        "logs:TestMetricFilter",
+        "logs:UntagLogGroup",
+        "logs:UpdateLogDelivery"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:logs:*"
+    }
+  ]
+}

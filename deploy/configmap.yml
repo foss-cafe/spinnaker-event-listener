@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  config: |
+    [default]
+    region = us-west-2
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: aws-config
+  namespace: spinnaker

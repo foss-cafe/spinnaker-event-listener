@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    artifact.spinnaker.io/location: spinnaker
+    artifact.spinnaker.io/name: spinnaker-event-lister
+    artifact.spinnaker.io/type: kubernetes/service
+    moniker.spinnaker.io/application: spin
+    moniker.spinnaker.io/cluster: service spinnaker-event-lister
+  labels:
+    app: spinnaker-event-lister
+    app.kubernetes.io/managed-by: spinnaker
+    app.kubernetes.io/name: spin
+  name: spinnaker-event-lister
+  namespace: spinnaker
+spec:
+  ports:
+    - name: http
+      port: 5000
+      protocol: TCP
+      targetPort: 5000
+  selector:
+    app: spinnaker-event-lister
+  type: ClusterIP

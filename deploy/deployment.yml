@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    artifact.spinnaker.io/location: spinnaker
+    artifact.spinnaker.io/name: spinnaker-event-lister
+    artifact.spinnaker.io/type: kubernetes/deployment
+    moniker.spinnaker.io/application: spin
+    moniker.spinnaker.io/cluster: deployment spinnaker-event-lister
+  labels:
+    app: spinnaker-event-lister
+    app.kubernetes.io/managed-by: spinnaker
+    app.kubernetes.io/name: spin
+  name: spinnaker-event-lister
+  namespace: spinnaker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spinnaker-event-lister
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        artifact.spinnaker.io/location: spinnaker
+        artifact.spinnaker.io/name: spinnaker-event-lister
+        artifact.spinnaker.io/type: kubernetes/deployment
+        moniker.spinnaker.io/application: spin
+        moniker.spinnaker.io/cluster: deployment spinnaker-event-lister
+      labels:
+        app: spinnaker-event-lister
+        app.kubernetes.io/managed-by: spinnaker
+        app.kubernetes.io/name: spin
+    spec:
+      containers:
+        - image: rajivnix/spinnaker-event-listner
+          name: spinnaker-event-listner
+          resources: {}
+          volumeMounts:
+            - mountPath: /root/.aws
+              name: aws-config
+      volumes:
+        - configMap:
+            name: aws-config
+          name: aws-config
+status: {}
